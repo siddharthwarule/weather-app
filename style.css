@@ -6,24 +6,17 @@
 }
 
 
-body, html {
-    height: 100%;
+body{
+    /* height: 100%; */
     margin: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
+
+    background-image: url("https://images.pexels.com/photos/10913481/pexels-photo-10913481.jpeg?auto=compress&cs=tinysrgb&w=1160&h=9750&dpr=1");
+   
+    background-size: cover;
+    background-repeat: no-repeat;  
+background-attachment: fixed;  
+background-position: center;   
 }
 
-.rain {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 1px;
-    height: 100%;
-    background: rgba(0, 0, 255, 0.5);
-    animation: fall linear infinite;
-}
 
-@keyframes fall {
-    to {
-        transform: translateY(100%);
-    }
-}

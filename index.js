@@ -6,11 +6,9 @@ const cityName = document.getElementById("cityname");
 
       function getCity(inputCity){
 
-   
-
     cityName.innerHTML=inputCity.toUpperCase();
 
-    const url = `https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=${inputCity}`;
+    const url = "https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city="+inputCity;
 const options = {
 	method: 'GET',
 	headers: {
@@ -19,8 +17,7 @@ const options = {
 	}
 };
 
-fetch(url, options)
-  .then(response => {
+fetch(url, options).then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -42,6 +39,8 @@ fetch(url, options)
     
 
     humidity.innerHTML=response.humidity;
+
+
     function convertTimestampToTime(timestamp) {
         const date = new Date(timestamp * 1000); // Multiply by 1000 to convert to milliseconds
         const hours = date.getHours().toString().padStart(2, '0');
@@ -50,6 +49,7 @@ fetch(url, options)
         return `${hours}:${minutes}:${seconds}`;
     }
     
+
     const sunriseTimestamp = response.sunrise;
     const sunsetTimestamp =response.sunset ;
     
@@ -65,6 +65,8 @@ fetch(url, options)
   });
 
 }
+
+
 getCity("delhi");
 
 submitSearch.addEventListener("click" ,(e)=>{
@@ -77,26 +79,3 @@ submitSearch.addEventListener("click" ,(e)=>{
 })
 
 
-const numDrops = 100;
-
-for (let i = 0; i < numDrops; i++) {
-    createDrop();
-}
-
-function createDrop() {
-    const drop = document.createElement('div');
-    drop.className = 'drop';
-    document.body.appendChild(drop);
-
-    const startX = Math.random() * window.innerWidth;
-    const endX = startX + Math.random() * 5;
-    const duration = Math.random() * 1 + 0.5;
-
-    drop.style.left = startX + 'px';
-    drop.style.animation = `fall linear ${duration}s infinite`;
-
-    drop.addEventListener('animationiteration', () => {
-        drop.style.left = startX + 'px';
-        drop.style.animation = `fall linear ${duration}s infinite`;
-    });
-}
