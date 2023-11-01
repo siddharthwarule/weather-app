@@ -13,11 +13,18 @@
         
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">weather forecast</a>
+          <a class="navbar-brand" href="#">Weather</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+             
+            </ul>
+
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="https://www.instagram.com/sidwarule07/">SID'S CREATION</a>
@@ -112,6 +119,122 @@
         </div>
        
       </main>
+
+      <h2 class="display-6 text-center mb-4">Weather of other common places</h2>
+
+      <div class="table-responsive">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th style="width: 34%;"></th>
+              <th style="width: 22%;">CLOUD_PCT </th>
+              <th style="width: 22%;">FEELS_LIKE </th>
+              <th style="width: 22%;">HUMIDITY</th>
+              <th style="width: 22%;">MAX_TEMP</th>
+              <th style="width: 22%;">MIN_TEMP</th>
+              <th style="width: 22%;">SUNRISE</th>
+              <th style="width: 22%;">SUNSET</th>
+              <th style="width: 22%;">TEMP</th>
+              <th style="width: 22%;">WIND_DEGREE</th>
+              <th style="width: 22%;">WIND_SPEED</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">delhi</th>
+              <td id="cloud_pct2"></td>
+              <td id="feels_like2"></td>
+              <td id="humidity2"></td>
+              <td id="min_temp2"></td>
+              <td id="max_temp2"></td>
+              <td id="sunrise2"></td>
+              <td id="sunset2"></td>
+              <td id="temp2"></td>
+              <td id="wind_degrees2"></td>
+              <td id="wind_speed2"></td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">mumbai</th>
+              <td id="cloud_pct3">1</td>
+              <td id="feels_like3">2</td>
+              <td id="humidity3">3</td>
+              <td id="min_temp3">4</td>
+              <td id="max_temp3">5</td>
+              <td id="sunrise3">1</td>
+              <td id="sunset3">2</td>
+              <td id="temp3">3</td>
+              <td id="wind_degrees3">4</td>
+              <td id="wind_speed3">5</td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">Pune</th>
+              <td id="cloud_pct4">1</td>
+              <td id="feels_like4">2</td>
+              <td id="humidity4">3</td>
+              <td id="min_temp4">4</td>
+              <td id="max_temp4">5</td>
+              <td id="sunrise4">1</td>
+              <td id="sunset4">2</td>
+              <td id="temp4">3</td>
+              <td id="wind_degrees4">4</td>
+              <td id="wind_speed4">5</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">gujrat</th>
+              <td id="cloud_pct5">1</td>
+              <td id="feels_like5">2</td>
+              <td id="humidity5">3</td>
+              <td id="min_temp5">4</td>
+              <td id="max_temp5">5</td>
+              <td id="sunrise5">1</td>
+              <td id="sunset5">2</td>
+              <td id="temp5">3</td>
+              <td id="wind_degrees5">4</td>
+              <td id="wind_speed5">5</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">manali</th>
+              <td id="cloud_pct6">1</td>
+              <td id="feels_like6">2</td>
+              <td id="humidity6">3</td>
+              <td id="min_temp6">4</td>
+              <td id="max_temp6">5</td>
+              <td id="sunrise6">1</td>
+              <td id="sunset6">2</td>
+              <td id="temp6">3</td>
+              <td id="wind_degrees6">4</td>
+              <td id="wind_speed6">5</td>
+
+
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">kerala</th>
+              <td id="cloud_pct7">1</td>
+              <td id="feels_like7">2</td>
+              <td id="humidity7">3</td>
+              <td id="min_temp7">4</td>
+              <td id="max_temp7">5</td>
+              <td id="sunrise7">1</td>
+              <td id="sunset7">2</td>
+              <td id="temp7">3</td>
+              <td id="wind_degrees7">4</td>
+              <td id="wind_speed7">5</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+
 
      
 
