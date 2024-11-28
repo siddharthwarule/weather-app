@@ -8,7 +8,7 @@ const cityName = document.getElementById("cityname");
 
     cityName.innerHTML=inputCity.toUpperCase();
 
-    const url = `http://api.weatherapi.com/v1/current.json?key=6b7c56f9b23c4e3884f72802242611&q=${inputCity}&aqi=no`;
+    const url = `http://api.weatherapi.com/v1/current.json?key=6b7c56f9b23c4e3884f72802242611&q=${inputCity}&aqi=yes`;
 const options = {
 	method: 'GET',
 };
