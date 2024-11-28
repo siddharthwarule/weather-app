@@ -4,42 +4,50 @@ const submitSearch = document.getElementById("searchbtn");
 const cityName = document.getElementById("cityname");
 
 
-      function getCity(inputCity){
+    function getCity(inputCity){
 
     cityName.innerHTML=inputCity.toUpperCase();
 
-    const url = "https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city="+inputCity;
+    const url = `http://api.weatherapi.com/v1/current.json?key=6b7c56f9b23c4e3884f72802242611&q=${inputCity}&aqi=no`;
 const options = {
 	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '79008bcb2fmshe9ba33b441db7f0p164ebdjsn4cd5f24341c8',
-		'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
-	}
 };
 
 fetch(url, options).then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    return response.json();
+	console.log(response)
+
+	 response.json().then(response=>{
+
+		
+		temp.innerHTML=response.current.temp_c;
+		weather_con.innerHTML=response.current.condition.text;
+		fahrenheit.innerHTML = response.current.temp_f;
+		wind_speed.innerHTML =  response.current.wind_kph;
+		wind_degrees.innerHTML=response.current.wind_degree;
+		cloud_pct.innerHTML = response.current.cloud;
+		humidity.innerHTML = response.current.humidity;
+		wind_dir.innerHTML = response.current.wind_dir;
+        windchill_c.innerHTML = response.current.windchill_c;
+		
+		
+		// console.log(response)
+
+	 })
   })
   .then(response => {
 
-    // console.log(result);
+     
 
-    temp.innerHTML=response.temp;
-    max_temp.innerHTML=response.max_temp;
-    min_temp.innerHTML=response.min_temp;
+
+    // max_temp.innerHTML=response.max_temp;
+    // min_temp.innerHTML=response.min_temp;
 
     // feels_like.innerHTML=response.feels_like;
     
     
-    wind_speed.innerHTML=response.wind_speed;
-    wind_degrees.innerHTML=response.wind_degrees;
-    cloud_pct.innerHTML= response.cloud_pct;    
-    
-
-    humidity.innerHTML=response.humidity;
 
 
     function convertTimestampToTime(timestamp) {
@@ -68,7 +76,80 @@ fetch(url, options).then(response => {
 }
 
 
-getCity("delhi");
+
+
+
+
+
+getCity("pune");
+
+
+
+function getWeatherByLocation() {
+    // Check if Geolocation is available
+    if (!navigator.geolocation) {
+        alert("Geolocation is not supported by your browser.");
+        return;
+    }
+
+    // Get the user's current position
+    navigator.geolocation.getCurrentPosition(
+        position => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            // Use the coordinates to fetch weather data
+            const url = `http://api.weatherapi.com/v1/current.json?key=6b7c56f9b23c4e3884f72802242611&aqi=no&q=${latitude},${longitude}`;
+            const options = {
+                method: 'GET',
+            };
+
+            fetch(url, options)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(response => {
+                    console.log(response);
+                    // Update DOM elements with weather data
+                    cityName.innerHTML = response.location.name.toUpperCase();
+                    temp.innerHTML = response.current.temp_c;
+                    weather_con.innerHTML = response.current.condition.text;
+                    fahrenheit.innerHTML = response.current.temp_f;
+                    wind_speed.innerHTML = response.current.wind_kph;
+                    wind_degrees.innerHTML = response.current.wind_degree;
+                    cloud_pct.innerHTML = response.current.cloud;
+                    humidity.innerHTML = response.current.humidity;
+                    wind_dir.innerHTML = response.current.wind_dir;
+
+                    // Optional: Windchill if available
+                    if (response.current.windchill_c) {
+                        windchill_c.innerHTML = response.current.windchill_c;
+                    }
+
+                    // Convert sunrise and sunset times if available
+                    if (response.location.localtime_epoch) {
+                        sunrise.innerHTML = "Not Available"; // Replace with actual API field if provided
+                        sunset.innerHTML = "Not Available"; // Replace with actual API field if provided
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching weather data:", error);
+                });
+        },
+        error => {
+            console.error("Error getting location:", error);
+            alert("Unable to retrieve your location.");
+        }
+    );
+}
+
+// Call the function
+getWeatherByLocation();
+
+
 
 submitSearch.addEventListener("click" ,(e)=>{
 
